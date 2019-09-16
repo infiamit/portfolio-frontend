@@ -21,16 +21,31 @@ const StyledText = styled.text`
 
 class Carousel extends Component<CarouselProps> {
 
+    static getDerivedStateFromProps = (props, state) => {
+        const step = props.data.length - 1
+        const step1 = step < 0 ? 0 : step
+        // console.log({ props }, { state }, step1)
+        if (state.activeIdx === step1) {
+            return { activeIdx: 0 }
+        } else {
+            return { activeIdx: 1 }
+        }
+        // this.setState({ activeIdx: this.props && this.props.data && this.props.data.length === this.state.activeIdx + 1 ? 0 : this.state.activeIdx + 1 })
+    }
     state = {
-        activeIdx: 0
+        activeIdx: 0,
+        runPage: false
     }
 
+    public componentDidMount() {
         setInterval(() => {
-            this.setState({ activeIdx: this.props && this.props.data && this.props.data.length === this.state.activeIdx + 1 ? 0 : this.state.activeIdx + 1 })
-        }, 5000);
+            this.setState({ runPage: !this.state.runPage })
+        }, 3000)
+    }
 
     render() {
         const { data } = this.props
+
         return (
             <React.Fragment>
                 {
