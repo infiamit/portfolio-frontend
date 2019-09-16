@@ -24,11 +24,13 @@ class Carousel extends Component<CarouselProps> {
     state = {
         activeIdx: 0
     }
+
+        setInterval(() => {
+            this.setState({ activeIdx: this.props && this.props.data && this.props.data.length === this.state.activeIdx + 1 ? 0 : this.state.activeIdx + 1 })
+        }, 5000);
+
     render() {
         const { data } = this.props
-        setTimeout(() => {
-            this.setState({ activeIdx: data.length === this.state.activeIdx + 1 ? 0 : this.state.activeIdx + 1 })
-        }, 2000);
         return (
             <React.Fragment>
                 {
