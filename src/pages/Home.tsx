@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import { Sidebar, Carousel } from '../components/index'
+import { Header } from '../components/index'
 import styled from 'styled-components'
+import { HomeSection } from '../sections/index'
 
 const ContentWrapper = styled.div`
-    border: 1px solid black;
-    float: right;
-    width: calc(100% - 360px);
-    transition: 0.5s;
-    @media screen and (max-width: 700px) {
-    width: 100%;
-    }
+    border: 1px solid black; 
+    transition: 0.5s; 
 `
 const SectionWrapper = styled.section`
     padding-top: 4em;
@@ -19,19 +15,18 @@ const SectionWrapper = styled.section`
     display: block;
 `;
 
-const data = [{ imageUrl: 'https://qphs.fs.quoracdn.net/main-thumb-120376262-200-ulpxeisgsnphirquzwtnroydmdxolbba.jpeg', description: "i am a web developer", title: 'web developer' },
-{ imageUrl: "https://pbs.twimg.com/profile_images/1024950012164243462/G2BfNQNB_400x400.jpg", description: "i am a web developer", title: 'web developer' }
-]
+
 class Home extends Component {
 
     render() {
         return (
             <React.Fragment>
-                <Sidebar />
+                <Header />
                 <ContentWrapper >
                     <SectionWrapper id="home">
-                        <Carousel data={data} />
+                        <HomeSection />
                     </SectionWrapper>
+
                     <SectionWrapper id="about">
                         about
                     </SectionWrapper>
