@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Header } from '../components/index'
 import styled from 'styled-components'
-import { HomeSection, AboutMe } from '../sections/index'
+import { HomeSection, AboutMe, Services } from '../sections/index'
 
 const ContentWrapper = styled.div`
     border: 1px solid black; 
@@ -30,7 +30,7 @@ class Home extends Component {
                         <AboutMe />
                     </SectionWrapper>
                     <SectionWrapper id="services">
-                        services
+                        <Services />
                     </SectionWrapper>
                     <SectionWrapper id="skills">
                         skills
