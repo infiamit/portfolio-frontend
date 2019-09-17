@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import { Header } from '../components/index'
 import styled from 'styled-components'
-import { HomeSection } from '../sections/index'
+import { HomeSection, AboutMe } from '../sections/index'
 
 const ContentWrapper = styled.div`
     border: 1px solid black; 
     transition: 0.5s; 
 `
 const SectionWrapper = styled.section`
-    padding-top: 4em;
-    padding-bottom: 9em;
+    padding-top: 4em; 
     clear: both;
     width: 100%;
     display: block;
@@ -28,7 +27,7 @@ class Home extends Component {
                     </SectionWrapper>
 
                     <SectionWrapper id="about">
-                        about
+                        <AboutMe />
                     </SectionWrapper>
                     <SectionWrapper id="services">
                         services
