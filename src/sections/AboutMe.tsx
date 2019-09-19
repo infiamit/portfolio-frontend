@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { Button } from '../components'
 
 const ProfilePictureWrapper = styled.div`
-    max-width: 38%; 
-    float: left;
+    max-width: 38%;  
     padding-right: 15px;
     padding-left: 15px;
     
@@ -17,8 +16,7 @@ const ImageWrapper = styled.img`
 `
 
 const AboutMeWrapper = styled.div`
-    max-width: 50%;
-    display: inline-block;
+    max-width: 50%; 
     padding-right: 14px;
     padding-left: 25px;
     padding-top: 20px;

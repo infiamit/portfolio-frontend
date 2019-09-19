@@ -13,6 +13,7 @@ const client = new ApolloClient({
 
 const Container = styled.div`
   width:100%; 
+  color: #666;
   height: calc(100vh - 69px);
 `
 class App extends Component {

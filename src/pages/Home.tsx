@@ -7,11 +7,15 @@ const ContentWrapper = styled.div`
     border: 1px solid black; 
     transition: 0.5s; 
 `
+
+interface Props { flexDirection?: string }
 const SectionWrapper = styled.section`
     padding-top: 4em; 
     clear: both;
     width: 100%;
-    display: block;
+    display: flex;
+    justify-content: center;
+    flex-direction:  ${(props: Props) => props.flexDirection || 'row'};
 `;
 
 
@@ -29,7 +33,7 @@ class Home extends Component {
                     <SectionWrapper id="about">
                         <AboutMe />
                     </SectionWrapper>
-                    <SectionWrapper id="services">
+                    <SectionWrapper id="services" flexDirection={'column'}>
                         <Services />
                     </SectionWrapper>
                     <SectionWrapper id="skills">
