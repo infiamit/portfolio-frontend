@@ -33,7 +33,7 @@ class Services extends React.Component {
                     What I do
                </StyledH3Wrapper>
             </StyledCardWrapper>
-            <StyledCardWrapper justifyContent={'space-between'} >
+            <StyledCardWrapper justifyContent={'center'} >
 
                 {data.map(item => <Card title={item.title} description={item.description} maxCards={data.length} />)}
             </StyledCardWrapper>

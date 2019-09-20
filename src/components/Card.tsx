@@ -13,9 +13,9 @@ const StyledCard = styled.div`
     transition: all 0.3s ease-in-out 0s;
     -moz-transition: all 0.3s ease-in-out 0s;
     -webkit-transition: all 0.3s ease-in-out 0s;
-    flex:  ${(props: CardProps) => 100 / props.maxCards > 25 ? `0 0 ${(100 / props.maxCards) - 1}%` : '0 0 24%'}; 
+    flex:  ${(props: CardProps) => 100 / props.maxCards > 25 ? `0 0 ${(100 / props.maxCards) - 1}%` : '0 0 18%'}; 
     justify-content: center;
-    max-width: 20%;
+     margin: 20px;
 `
 const StyledLink = styled.a`
 font-size: 18px;

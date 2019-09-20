@@ -3,20 +3,20 @@ import styled from 'styled-components'
 import { Button } from '../components'
 
 const ProfilePictureWrapper = styled.div`
-    max-width: 38%;  
+    max-width: 35%;  
     padding-right: 15px;
     padding-left: 15px;
+    justify-content: center;
     
 `
 const ImageWrapper = styled.img`
     max-width: 100%; 
     border: 8px solid #fff;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
-    max-height: 500px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2); 
 `
 
 const AboutMeWrapper = styled.div`
-    max-width: 50%; 
+    max-width: 45%; 
     padding-right: 14px;
     padding-left: 25px;
     padding-top: 20px;
