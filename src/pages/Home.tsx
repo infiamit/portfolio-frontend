@@ -7,6 +7,7 @@ import { HomeSection, AboutMe, Services, Skills } from '../sections/index'
 const ContentWrapper = styled.div`
     border: 1px solid black; 
     transition: 0.5s; 
+    width: fit-content;
 `
 
 interface Props { flexDirection?: string }
