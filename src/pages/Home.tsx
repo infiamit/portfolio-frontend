@@ -10,14 +10,15 @@ const ContentWrapper = styled.div`
     width: fit-content;
 `
 
-interface Props { flexDirection?: string }
+interface Props { flexDirection?: string, background?: string }
 const SectionWrapper = styled.section`
-    padding-top: 4em; 
+    padding: 60px 0;             
     clear: both;
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction:  ${(props: Props) => props.flexDirection || 'row'};
+    background: ${(props: Props) => props.background || 'white'} ;
 `;
 
 
@@ -35,10 +36,10 @@ class Home extends Component {
                     <SectionWrapper id="about">
                         <AboutMe />
                     </SectionWrapper>
-                    <SectionWrapper id="services" flexDirection={'column'}>
+                    <SectionWrapper id="services" flexDirection={'column'} background={'#f0f0f0'}>
                         <Services />
                     </SectionWrapper>
-                    <SectionWrapper id="skills">
+                    <SectionWrapper id="skills" flexDirection={'column'}>
                         <Skills />
                     </SectionWrapper>
                     <SectionWrapper id="education">

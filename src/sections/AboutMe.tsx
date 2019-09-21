@@ -49,6 +49,8 @@ const ListItem = styled.li`
 const DownloadWrapper = styled.div`
     display: flex;
     clear: both;
+    flex-wrap: wrap;
+    justify-content: center;
 `
 const data = [{ "key": 'Name', value: "Tom Saulnier" },
 { key: "Age", value: "25 Years" },
@@ -87,7 +89,7 @@ class AboutMe extends Component {
                     }
 
                 </ListWrapper>
-                <br />
+
 
                 <DownloadWrapper>
 

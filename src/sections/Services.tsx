@@ -16,6 +16,8 @@ const StyledH3Wrapper = styled.h3`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    color: #252525;
+    margin: 10px 0 10px 0;
 `
 
 

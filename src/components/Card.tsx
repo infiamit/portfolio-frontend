@@ -16,6 +16,9 @@ const StyledCard = styled.div`
     flex:  ${(props: CardProps) => 100 / props.maxCards > 25 ? `0 0 ${(100 / props.maxCards) - 1}%` : '0 0 18%'}; 
     justify-content: center;
      margin: 20px;
+     &:hover {
+        box-shadow: 0px 0px 10px #0099e6;
+     }
 `
 const StyledLink = styled.a`
 font-size: 18px;
