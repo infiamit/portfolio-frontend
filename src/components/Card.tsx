@@ -19,6 +19,15 @@ const StyledCard = styled.div`
      &:hover {
         box-shadow: 0px 0px 10px #0099e6;
      }
+     @media screen and (max-width: 768px) {
+        flex: 0 0 35%;
+        padding: 48px 5px 48px 5px;
+        }
+        @media screen and (max-width: 480px) {
+            flex: 0 0 90%;
+            padding: 48px 5px 48px 5px;
+            }
+
 `
 const StyledLink = styled.a`
 font-size: 18px;

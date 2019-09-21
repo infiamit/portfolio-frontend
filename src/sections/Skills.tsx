@@ -20,7 +20,7 @@ const data = [
 const BarWrapper = styled.div`
         display: flex ;
         flex-wrap: wrap; 
-        justify-content: space-between;
+        justify-content:space-around;
 `
 const StyledH3Wrapper = styled.h3`
    font-size: 36px;
@@ -45,6 +45,17 @@ class Skills extends React.Component {
                 <StyledH3Wrapper>
                     MY SKILLS
             </StyledH3Wrapper>
+                <Container>
+                    <p style={{ maxWidth: '80%' }}>  aa ada dadsdsd sd sds ds dsdsdsdsd sd s dsdsd sd s d sds d sd sd sd s dsds d  sdsdsd sds d sds d sdsdsdsd sd sd sds d. sdsdsddsds
+                      ds
+                      dsdsdsdsdds
+
+                      sds sd
+                      sdsdsdsdsd
+                      sdsdsdsddsds
+                      ds
+                    ds</p>
+                </Container>
                 <Container>
                     <BarWrapper>
                         {data.map((item, idx) => <Bar key={idx} maxFill={item.maxFill} color={item.color} height={item.height} text={item.text} flexPercent={50} />)}

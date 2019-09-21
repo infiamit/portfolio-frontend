@@ -7,7 +7,9 @@ const ProfilePictureWrapper = styled.div`
     padding-right: 15px;
     padding-left: 15px;
     justify-content: center;
-    
+    @media screen and (max-width: 768px) {
+        max-width: 80%; 
+        }
 `
 const ImageWrapper = styled.img`
     max-width: 100%; 
@@ -20,7 +22,9 @@ const AboutMeWrapper = styled.div`
     padding-right: 14px;
     padding-left: 25px;
     padding-top: 20px;
-
+    @media screen and (max-width: 768px) {
+        max-width: 80%; 
+        }
 `
 const TitleWrapper = styled.div` 
     font-weight: 700;

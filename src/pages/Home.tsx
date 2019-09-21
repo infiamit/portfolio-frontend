@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Header } from '../components/index'
 import styled from 'styled-components'
-import { HomeSection, AboutMe, Services, Skills } from '../sections/index'
+import { HomeSection, AboutMe, Services, Skills, ContactForm } from '../sections/index'
 
 
 const ContentWrapper = styled.div`
@@ -10,7 +10,7 @@ const ContentWrapper = styled.div`
     width: fit-content;
 `
 
-interface Props { flexDirection?: string, background?: string }
+interface Props { flexDirection?: string, background?: string, minWidth700?: { flexDirection: string } }
 const SectionWrapper = styled.section`
     padding: 60px 0;             
     clear: both;
@@ -19,6 +19,11 @@ const SectionWrapper = styled.section`
     justify-content: center;
     flex-direction:  ${(props: Props) => props.flexDirection || 'row'};
     background: ${(props: Props) => props.background || 'white'} ;
+    @media screen and (max-width: 768px) {
+        flex-direction: ${(props: Props) => props.minWidth700 && props.minWidth700.flexDirection};
+        justify-content: center;
+        align-items: center;
+        }
 `;
 
 
@@ -33,7 +38,7 @@ class Home extends Component {
                         <HomeSection />
                     </SectionWrapper>
 
-                    <SectionWrapper id="about">
+                    <SectionWrapper id="about" minWidth700={{ flexDirection: 'column' }}>
                         <AboutMe />
                     </SectionWrapper>
                     <SectionWrapper id="services" flexDirection={'column'} background={'#f0f0f0'}>
@@ -42,20 +47,11 @@ class Home extends Component {
                     <SectionWrapper id="skills" flexDirection={'column'}>
                         <Skills />
                     </SectionWrapper>
-                    <SectionWrapper id="education">
-                        education
-                    </SectionWrapper>
-                    <SectionWrapper id="experience">
-                        experience
-                    </SectionWrapper>
-                    <SectionWrapper id="work">
-                        work
-                    </SectionWrapper>
-                    <SectionWrapper id="blog">
-                        blog
+                    <SectionWrapper id="projects">
+                        project
                     </SectionWrapper>
                     <SectionWrapper id="contact">
-                        contact
+                        <ContactForm />
                     </SectionWrapper>
                 </ContentWrapper>
             </React.Fragment>

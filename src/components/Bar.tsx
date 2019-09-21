@@ -12,6 +12,10 @@ const Container = styled.div`
     margin-bottom: 5px;
     flex: ${(props: Props) => `0 0 ${props.flexPercent - 3}%`}
     margin-right: 5px;
+    @media screen and (max-width: 480px) {
+        justify-content: center;
+        flex: 0 0 90%;
+        }
     
 `
 const StyledBar = styled.div`
@@ -23,6 +27,9 @@ const StyledBar = styled.div`
     justify-content: space-between;
     border-radius: 5px;
     height:${(props: Props) => (props.height || '10px')};
+    @media screen and (max-width: 480px) {
+        height: 10px;
+        }
 `
 const StyledH3 = styled.h3` 
 position: relative;

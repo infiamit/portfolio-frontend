@@ -14,7 +14,7 @@ const SidebarWrapper = styled.div`
    font-family: "Quicksand", Arial, sans-serif;
     font-weight: 400;
     font-size: 15px;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 768px) {
         width: 100%;
         height: auto;
         position: relative;
@@ -31,7 +31,7 @@ const ProfileWrapper = styled.div`
     height: 40%; 
     min-height: 250px;
     margin-bottom: 1.5em;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 768px) {
     display: none;
     }
 `
@@ -43,7 +43,7 @@ const ListItem = styled.li`
     list-style: none;
     font-size: 12px;
     font-weight: 500;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 768px) {
     float: left;
     margin-left: 10px;
     }

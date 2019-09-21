@@ -21,10 +21,12 @@ const ListItem = styled.li`
     letter-spacing: 1px; 
     padding: 10px;
     list-style: none;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 700;
     float: left;
-    @media screen and (max-width: 700px) {
+    
+    margin-right: 20px;
+    @media screen and (max-width: 768px) {
     float: left;
     margin-left: 10px;
 
@@ -51,12 +53,8 @@ class Header extends Component {
                 <ListItem><StyledLink href="#about">ABOUT</StyledLink></ListItem>
                 <ListItem><StyledLink href="#services">SERVICES</StyledLink></ListItem>
                 <ListItem><StyledLink href="#skills">SKILLS</StyledLink></ListItem>
-                <ListItem><StyledLink href="#education">EDUCATION</StyledLink></ListItem>
-                <ListItem><StyledLink href="#experience">EXPERIENCE</StyledLink></ListItem>
-                <ListItem><StyledLink href="#work">WORK</StyledLink></ListItem>
-                <ListItem><StyledLink href="#blog">BLOG</StyledLink></ListItem>
+                <ListItem><StyledLink href="#projects">PROJECTS</StyledLink></ListItem>
                 <ListItem><StyledLink href="#contact">CONTACT</StyledLink></ListItem>
-
             </ListWrapper>
         </HeaderWrapper>
 
