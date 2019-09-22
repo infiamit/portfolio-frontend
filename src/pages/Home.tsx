@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Header } from '../components/index'
 import styled from 'styled-components'
-import { HomeSection, AboutMe, Services, Skills, ContactForm } from '../sections/index'
+import { HomeSection, AboutMe, Services, Skills, ContactForm, Projects } from '../sections/index'
 
 
 const ContentWrapper = styled.div`
@@ -47,8 +47,8 @@ class Home extends Component {
                     <SectionWrapper id="skills" flexDirection={'column'}>
                         <Skills />
                     </SectionWrapper>
-                    <SectionWrapper id="projects">
-                        project
+                    <SectionWrapper id="projects" flexDirection={'column'}>
+                        <Projects />
                     </SectionWrapper>
                     <SectionWrapper id="contact">
                         <ContactForm />
