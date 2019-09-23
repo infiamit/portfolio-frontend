@@ -60,6 +60,53 @@ const DownloadWrapper = styled.div`
     justify-content: center;
 `
 
+const backupData = {
+    "author": "AMIT SINGH BHANDARI",
+    "profilePic": "https://scontent.fdel12-1.fna.fbcdn.net/v/t1.0-9/62045442_2834554486765441_2779690704983556096_n.jpg?_nc_cat=111&_nc_oc=AQlwQQoUBzMvIKvom44_xD906Z0vyMJgJEqDnumKzQoeht5kdQAjM5-Mk0ykbv2fcKg&_nc_ht=scontent.fdel12-1.fna&oh=a7179f82af98e5412336a75e7c0bb2c8&oe=5E00F472",
+    "description": "This is Amit Singh Bhandari, a computer science post graduate from New Delhi having work experience of 2 years. I love programming and i do both backend as well as frontend work and I am also always open to learn new technologies.  ",
+    "authorBio": [
+        {
+            "key": "Name",
+            "value": "Amit Singh Bhandari"
+        },
+        {
+            "key": "Age",
+            "value": "25 Years"
+        },
+        {
+            "key": "Experience",
+            "value": " 2 Years"
+        },
+        {
+            "key": "Country",
+            "value": "INDIA"
+        },
+        {
+            "key": "Location",
+            "value": "DELHI/NCR"
+        },
+        {
+            "key": "e-mail",
+            "value": "amitsingh80108@gmail.com"
+        },
+        {
+            "key": "Phone",
+            "value": "+91 8010811547"
+        },
+        {
+            "key": "Freelance",
+            "value": "Available"
+        },
+        {
+            "key": "Bachelor`s Degree",
+            "value": "BCA"
+        },
+        {
+            "key": "Master`s Degree",
+            "value": "MCA"
+        }
+    ]
+}
 
 
 class AboutMe extends Component<AboutMeProps> {
@@ -69,17 +116,17 @@ class AboutMe extends Component<AboutMeProps> {
 
         return <React.Fragment>
             <ProfilePictureWrapper>
-                <ImageWrapper src={"https://scontent.fdel12-1.fna.fbcdn.net/v/t1.0-9/62045442_2834554486765441_2779690704983556096_n.jpg?_nc_cat=111&_nc_oc=AQlwQQoUBzMvIKvom44_xD906Z0vyMJgJEqDnumKzQoeht5kdQAjM5-Mk0ykbv2fcKg&_nc_ht=scontent.fdel12-1.fna&oh=a7179f82af98e5412336a75e7c0bb2c8&oe=5E00F472"} />
+                <ImageWrapper src={data.profilePic || backupData.profilePic} />
             </ProfilePictureWrapper>
 
             <AboutMeWrapper>
                 <h1 style={{ "fontSize": "36px" }}> Hi Guys! </h1>
-                {data.description}
+                {data.description || backupData.description}
                 <br />
 
 
                 <ListWrapper>
-                    {data && data.authorBio.map(item => <ListItem>
+                    {(data || backupData).authorBio.map(item => <ListItem>
                         <TitleWrapper>
                             {item.key}
                         </TitleWrapper>
