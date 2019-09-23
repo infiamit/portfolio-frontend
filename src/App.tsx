@@ -16,6 +16,22 @@ const Container = styled.div`
   color: #666;
   height: calc(100vh - 69px);
 `
+// client
+//   .query({
+//     query: gql`
+//       {
+
+//           projects{
+//             _id
+//             projectTitle
+//             projectUrl
+//             projectDescription
+//           }
+
+//       }
+//     `
+//   })
+//   .then(result => console.log(result));
 class App extends Component {
   render() {
     return (

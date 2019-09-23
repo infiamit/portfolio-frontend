@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Icon } from '../components/Icon'
+import { Modal } from '../components'
 
 
 interface StyledProps { backgroundUrl?: string }
@@ -63,6 +64,9 @@ const StyledH4 = styled.h2`
 
 class Projects extends React.Component {
 
+    state = {
+        showModal: false
+    }
 
     render() {
         return (
@@ -84,24 +88,17 @@ class Projects extends React.Component {
 
                 <Container>
 
-                    <ProjectWrapper onClick={() => console.log('hello')} title={'View Details'}>
+                    <ProjectWrapper onClick={() => this.setState({ showModal: true })} title={'View Details'}>
                         <OverlayWrappper>
                             <StyledH4>hello project</StyledH4>
                             <Icon icon={'viewMore'} width={56} height={56} />
                         </OverlayWrappper>
                     </ProjectWrapper>
-                    <ProjectWrapper>
-                        hello
-                    </ProjectWrapper>
-                    <ProjectWrapper>
-                        hello
-                    </ProjectWrapper>
-                    <ProjectWrapper>
-                        hello
-                    </ProjectWrapper>
-                    <ProjectWrapper>
-                        hello
-                    </ProjectWrapper>
+                    <Modal modalVisible={this.state.showModal}
+                        closeModal={() => this.setState({ showModal: false })}
+                    >
+                        hello world
+                    </Modal>
 
                 </Container>
 
