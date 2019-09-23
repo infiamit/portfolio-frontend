@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Button } from '../components/index'
 
+interface HomeSectionProps { data?: any }
+
 const Container = styled.div`
     width: 100%;
     padding: 170px 0px 120px;
@@ -33,15 +35,18 @@ const StyledH2 = styled.h2`
 
 
 
-class HomeSection extends Component {
+class HomeSection extends Component<HomeSectionProps> {
 
     render() {
+        const { data } = this.props
+
         return <Container>
 
             <StyledText>
                 <StyledH5>Hi This is</StyledH5>
                 <StyledH2>
-                    Amit Singh Bhandari
+                    {data && data.author || 'default Amit Singh Bhandari'}
+
                 </StyledH2>
                 <StyledH5>Full Stack Web Developer</StyledH5>
 

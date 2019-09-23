@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Button } from '../components'
 
+interface AboutMeProps { data?: any }
+
+
 const ProfilePictureWrapper = styled.div`
     max-width: 35%;  
     padding-right: 15px;
@@ -56,20 +59,14 @@ const DownloadWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: center;
 `
-const data = [{ "key": 'Name', value: "Tom Saulnier" },
-{ key: "Age", value: "25 Years" },
-{ key: "Experience", value: " 4 Years" },
-{ key: "Country", value: "USA" },
-{ key: "Location", value: "San Francisco, CA" },
-{ key: 'e-mail', value: "email@example.com" },
-{ key: "Phone", value: "+ (00) 123 456 789" },
-{ key: "Freelance", value: "Available" }]
 
 
 
-class AboutMe extends Component {
+class AboutMe extends Component<AboutMeProps> {
 
     render() {
+        const { data } = this.props
+
         return <React.Fragment>
             <ProfilePictureWrapper>
                 <ImageWrapper src={"https://scontent.fdel12-1.fna.fbcdn.net/v/t1.0-9/62045442_2834554486765441_2779690704983556096_n.jpg?_nc_cat=111&_nc_oc=AQlwQQoUBzMvIKvom44_xD906Z0vyMJgJEqDnumKzQoeht5kdQAjM5-Mk0ykbv2fcKg&_nc_ht=scontent.fdel12-1.fna&oh=a7179f82af98e5412336a75e7c0bb2c8&oe=5E00F472"} />
@@ -77,13 +74,12 @@ class AboutMe extends Component {
 
             <AboutMeWrapper>
                 <h1 style={{ "fontSize": "36px" }}> Hi Guys! </h1>
-                Est diam venenatis arcu lacus ad. Duis quis eros. Cursus et rutrum eleifend sollicitudin lacinia justo id turpis. Nec convallis integer. Odio eget duis. Nulla aenean et. Blandit varius sollicitudin. Pellentesque leo primis neque urna magnis. Elit ut sollicitudin. Et est a nam dolores eget itaque sagittis et parturient duis est eleifend sociis rutrum odio viverra integer.
-
-<br />
+                {data.description}
+                <br />
 
 
                 <ListWrapper>
-                    {data.map(item => <ListItem>
+                    {data && data.authorBio.map(item => <ListItem>
                         <TitleWrapper>
                             {item.key}
                         </TitleWrapper>

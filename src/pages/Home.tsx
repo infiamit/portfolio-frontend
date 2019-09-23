@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Header } from '../components/index'
 import styled from 'styled-components'
 import { HomeSection, AboutMe, Services, Skills, ContactForm, Projects } from '../sections/index'
 
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from "apollo-boost";
 
 const ContentWrapper = styled.div`
     border: 1px solid black; 
@@ -26,37 +28,53 @@ const SectionWrapper = styled.section`
         }
 `;
 
-
-class Home extends Component {
-
-    render() {
-        return (
-            <React.Fragment>
-                <Header />
-                <ContentWrapper >
-                    <SectionWrapper id="home">
-                        <HomeSection />
-                    </SectionWrapper>
-
-                    <SectionWrapper id="about" minWidth700={{ flexDirection: 'column' }}>
-                        <AboutMe />
-                    </SectionWrapper>
-                    <SectionWrapper id="services" flexDirection={'column'} background={'#f0f0f0'}>
-                        <Services />
-                    </SectionWrapper>
-                    <SectionWrapper id="skills" flexDirection={'column'}>
-                        <Skills />
-                    </SectionWrapper>
-                    <SectionWrapper id="projects" flexDirection={'column'}>
-                        <Projects />
-                    </SectionWrapper>
-                    <SectionWrapper id="contact">
-                        <ContactForm />
-                    </SectionWrapper>
-                </ContentWrapper>
-            </React.Fragment>
-        )
+const PORTFOLIO_META = gql`
+    query portfolioMeta{
+      portfolioMeta{
+        metaKey
+        metaValue
+        metaType
+      }
     }
+`
+
+
+function Home() {
+
+
+
+    const { loading, data } = useQuery(PORTFOLIO_META);
+
+    if (loading) {
+        return <h3>Loading . . . .</h3>
+    }
+
+    return (
+        <React.Fragment>
+            <Header />
+            <ContentWrapper >
+                <SectionWrapper id="home">
+                    <HomeSection data={data.portfolioMeta.filter(item => item.metaKey === 'HomeSection')[0].metaValue} />
+                </SectionWrapper>
+
+                <SectionWrapper id="about" minWidth700={{ flexDirection: 'column' }}>
+                    <AboutMe data={data.portfolioMeta.filter(item => item.metaKey === 'AboutMe')[0].metaValue} />
+                </SectionWrapper>
+                <SectionWrapper id="services" flexDirection={'column'} background={'#f0f0f0'}>
+                    <Services />
+                </SectionWrapper>
+                <SectionWrapper id="skills" flexDirection={'column'}>
+                    <Skills />
+                </SectionWrapper>
+                <SectionWrapper id="projects" flexDirection={'column'}>
+                    <Projects />
+                </SectionWrapper>
+                <SectionWrapper id="contact">
+                    <ContactForm />
+                </SectionWrapper>
+            </ContentWrapper>
+        </React.Fragment>
+    )
 }
 
 export { Home }

@@ -32,8 +32,13 @@ const Container = styled.div`
 //     `
 //   })
 //   .then(result => console.log(result));
+
+
 class App extends Component {
+
   render() {
+
+
     return (
       <ApolloProvider client={client}>
         <Container>

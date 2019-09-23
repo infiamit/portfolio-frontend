@@ -48,10 +48,7 @@ const OverlayWrappper = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-
-   
+}  
 `
 
 const StyledH4 = styled.h2`
