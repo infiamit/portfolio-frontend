@@ -30,7 +30,10 @@ const StyledH2 = styled.h2`
     font-size: 80px;
     letter-spacing: 10px;
     text-transform: uppercase;
-    font-weight: 700;      
+    font-weight: 700; 
+    @media screen and (max-width: 480px) {
+        font-size: 36px;
+        }     
 `
 
 
@@ -45,7 +48,7 @@ class HomeSection extends Component<HomeSectionProps> {
             <StyledText>
                 <StyledH5>Hi This is</StyledH5>
                 <StyledH2>
-                    {data && data.author || 'default Amit Singh Bhandari'}
+                    {data && data.author || 'Amit Singh Bhandari'}
 
                 </StyledH2>
                 <StyledH5>Full Stack Web Developer</StyledH5>
