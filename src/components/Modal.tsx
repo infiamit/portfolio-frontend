@@ -22,6 +22,9 @@ const ModalContent = styled.div`
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    @media screen and (max-width: 480px) {
+        margin: 30% auto;
+        }
 `
 const StyledSpan = styled.div`
     color: #aaa;

@@ -67,7 +67,7 @@ function Home() {
                     <Skills data={data.portfolioMeta.filter(item => item.metaKey === 'Skills')[0].metaValue} />
                 </SectionWrapper>
                 <SectionWrapper id="projects" flexDirection={'column'}>
-                    <Projects />
+                    <Projects data={data.portfolioMeta.filter(item => item.metaKey === 'Projects')[0].metaValue} />
                 </SectionWrapper>
                 <SectionWrapper id="contact">
                     <ContactForm />
