@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Input, TextArea } from '../components'
+import gql from 'graphql-tag';
+import { useMutation } from '@apollo/react-hooks';
 
-interface Props { justifyContent?: string, maxWidth?: number, wrap?:string }
+interface Props { justifyContent?: string, maxWidth?: number, wrap?: string }
 const Container = styled.div`
    
     display: flex;
@@ -42,51 +44,110 @@ const InputWrapper = styled.div`
   width: 100%;
 `
 
-class ContactForm extends React.Component {
+const CREATE_CONTACT_FORM = gql`
+    mutation createContactForm($contactFormInput: ContactFormInput!) {
+        createContactForm(contactFormInput: $contactFormInput)  
+    }
+`
 
-    render() {
-        return (<>
-            <Container justifyContent={'space-around'}>
-                <ChildContainer justifyContent={'flex-start'}>
-                    <StyledH3Wrapper>
-                        CONTACT FORM
-                    </StyledH3Wrapper>
-                        <form style={{display: 'flex', flexWrap: 'wrap'}}>
-                           <InputWrapper wrap={'nowrap'}>
-                            <Input 
-                            type={'text'}  
-                            placeholder={'Name'}
-                            /> 
-                               <Input 
-                            type={'text'}  
-                            placeholder={'Email'}
-                            /> 
-                            </InputWrapper>
-                            <InputWrapper wrap={'wrap'}>
-                            <Input 
-                            type={'text'}  
-                            
-                            placeholder={'Website'}
-                            />
-                             <Input 
-                            type={'text'}  
-                            
-                            placeholder={'Subject'}
-                            />
-                            <TextArea
-                            width={'100%'} 
-                            placeholder={'Your Message'}
-                            /> 
-                              
-                            </InputWrapper>
-                        </form>
-                </ChildContainer>
-                <ChildContainer justifyContent={'flex-start'}>
+function ContactForm() {
+
+
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [website, setWebsite] = useState('')
+    const [subject, setSubject] = useState('')
+    const [message, setMessage] = useState('')
+    const [phone, setPhone] = useState('')
+
+    const [createContactForm] = useMutation(CREATE_CONTACT_FORM);
+
+    return (<>
+        <Container justifyContent={'space-around'}>
+            <ChildContainer justifyContent={'flex-start'}>
                 <StyledH3Wrapper>
-                        CONTACT ADDRESS
+                    CONTACT FORM
+                    </StyledH3Wrapper>
+                <form id={'contactForm'} style={{ display: 'flex', flexWrap: 'wrap' }} onSubmit={(event) => {
+
+                    // console.log(this.state)
+                    console.log(name,
+                        email,
+                        website,
+                        subject,
+                        message,
+                        phone)
+                    const response = createContactForm({
+                        variables: {
+                            contactFormInput: {
+                                name,
+                                email,
+                                website,
+                                subject,
+                                message,
+                                phone
+                            }
+                        }
+                    })
+                    response.then(() => {
+                        setName('')
+                        setEmail('')
+                        setWebsite('')
+                        setSubject('')
+                        setMessage('')
+                        setPhone('')
+                    }).catch(error => console.log(error))
+
+                    event.preventDefault()
+                }}>
+                    <InputWrapper wrap={'nowrap'}>
+                        <Input
+                            type={'text'}
+                            placeholder={'Name'}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <Input
+                            type={'email'}
+                            placeholder={'Email'}
+                            onChange={(e) => setEmail(e.target.value)}
+
+                        />
+                    </InputWrapper>
+                    <InputWrapper wrap={'wrap'}>
+                        <Input
+                            type={'text'}
+                            onChange={(e) => setWebsite(e.target.value)}
+
+                            placeholder={'Website'}
+                        />
+                        <Input
+                            type={'text'}
+                            onChange={(e) => setSubject(e.target.value)}
+
+                            placeholder={'Subject'}
+                        />
+                        <Input
+                            type={'text'}
+                            onChange={(e) => setPhone(e.target.value)}
+
+                            placeholder={'Phone'}
+                        />
+                        <TextArea
+                            width={'100%'}
+                            onChange={(e) => setMessage(e.target.value)}
+
+                            placeholder={'Your Message'}
+                        />
+                        <Input type={'submit'} />
+                    </InputWrapper>
+                </form>
+            </ChildContainer>
+            <ChildContainer justifyContent={'flex-start'}>
+                <StyledH3Wrapper>
+                    CONTACT ADDRESS
                     </StyledH3Wrapper>
                 >>s dsdsds sd sd sdsd sd sd sds ds ds ds
-                    
+
 1111s dsdsds sd sd sdsd sd sd sds ds ds ds
 1111s dsdsds sd sd sdsd sd sd sds ds ds ds
 1111s dsdsds sd sd sdsd sd sd sds ds ds ds
@@ -103,9 +164,9 @@ class ContactForm extends React.Component {
 1111s dsdsds sd sd sdsd sd sd sds ds ds ds
 1111s dsdsds sd sd sdsd sd sd sds ds ds ds
                 </ChildContainer>
-            </Container>
-        </>)
-    }
+        </Container>
+    </>)
 }
+
 
 export { ContactForm }

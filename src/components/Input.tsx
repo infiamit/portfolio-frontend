@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 
 
-interface InputProps { inputColor?: string, label?: string, disabled?: string, type?: string, width?: string, placeholder?: string }
+interface InputProps { id?: string, inputColor?: string, label?: string, disabled?: string, type?: string, width?: string, placeholder?: string, onChange?: any }
 
 
 
