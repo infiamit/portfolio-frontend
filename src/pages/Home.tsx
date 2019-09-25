@@ -61,10 +61,10 @@ function Home() {
                     <AboutMe data={data.portfolioMeta.filter(item => item.metaKey === 'AboutMe')[0].metaValue} />
                 </SectionWrapper>
                 <SectionWrapper id="services" flexDirection={'column'} background={'#f0f0f0'}>
-                    <Services />
+                    <Services data={data.portfolioMeta.filter(item => item.metaKey === 'Services')[0].metaValue} />
                 </SectionWrapper>
-                <SectionWrapper id="skills" flexDirection={'column'}>
-                    <Skills />
+                <SectionWrapper id="skills" flexDirection={'column'} >
+                    <Skills data={data.portfolioMeta.filter(item => item.metaKey === 'Skills')[0].metaValue} />
                 </SectionWrapper>
                 <SectionWrapper id="projects" flexDirection={'column'}>
                     <Projects />
